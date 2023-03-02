@@ -1,4 +1,4 @@
-package com.antonioleiva.mynotes
+package com.antonioleiva.mynotes.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.antonioleiva.mynotes.Note
+import com.antonioleiva.mynotes.R
 import com.antonioleiva.mynotes.databinding.NoteItemBinding
 
 class NotesAdapter(

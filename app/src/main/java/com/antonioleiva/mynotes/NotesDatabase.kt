@@ -10,6 +10,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 
 @Database(entities = [Note::class], version = 1)
@@ -21,7 +22,7 @@ abstract class NotesDatabase : RoomDatabase() {
 interface NoteDao {
 
     @Query("SELECT * FROM Note")
-    suspend fun getAll(): List<Note>
+    fun getAll(): Flow<List<Note>>
 
     @Query("SELECT * FROM Note WHERE id = :id")
     suspend fun getById(id: Int): Note?
