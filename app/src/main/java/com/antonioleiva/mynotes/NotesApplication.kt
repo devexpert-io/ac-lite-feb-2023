@@ -2,7 +2,10 @@ package com.antonioleiva.mynotes
 
 import android.app.Application
 import androidx.room.Room
+import com.antonioleiva.mynotes.data.NotesDatabase
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class NotesApplication : Application() {
 
     lateinit var notesDatabase: NotesDatabase
@@ -10,9 +13,7 @@ class NotesApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        notesDatabase = Room
-            .databaseBuilder(this, NotesDatabase::class.java, "notes.db")
-            .build()
+
     }
 
 }

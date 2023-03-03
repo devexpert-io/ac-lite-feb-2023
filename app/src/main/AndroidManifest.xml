@@ -13,10 +13,10 @@
         android:theme="@style/Theme.MyNotes"
         tools:targetApi="31">
         <activity
-            android:name=".detail.DetailActivity"
+            android:name=".ui.detail.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

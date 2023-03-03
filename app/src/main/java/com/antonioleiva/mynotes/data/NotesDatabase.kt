@@ -1,4 +1,4 @@
-package com.antonioleiva.mynotes
+package com.antonioleiva.mynotes.data
 
 /* Create a notes database using Room with all CRUD operations. */
 
@@ -10,6 +10,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import com.antonioleiva.mynotes.Note
 import kotlinx.coroutines.flow.Flow
 
 

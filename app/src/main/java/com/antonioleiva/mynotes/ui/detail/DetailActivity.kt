@@ -1,4 +1,4 @@
-package com.antonioleiva.mynotes.detail
+package com.antonioleiva.mynotes.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,17 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.antonioleiva.mynotes.NotesApplication
 import com.antonioleiva.mynotes.databinding.ActivityDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
-    private val vm: DetailViewModel by viewModels {
-        val database = (application as NotesApplication).notesDatabase
-        val noteId = intent.getIntExtra(EXTRA_NOTE_ID, 0)
-        DetailViewModelFactory(database, noteId)
-    }
+    private val vm: DetailViewModel by viewModels()
 
     companion object {
         const val EXTRA_NOTE_ID = "note_id"
@@ -41,7 +38,7 @@ class DetailActivity : AppCompatActivity() {
                 finish()
             }
             lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED){
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
                     vm.state.collect {
                         editTextTitle.setText(it.title)
                         editTextDescription.setText(it.description)
